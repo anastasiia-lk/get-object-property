@@ -1,21 +1,33 @@
+// function getProperty(obj, path) {
+//   const arr = path.split('.');
+//   let res = obj;
+
+//   for (let i = 0; i < arr.length; i += 1) {
+//     // проверим, что по ключу обратиться можно
+//     if (res === undefined || res === null) {
+//       console.log('Такого свойства нет');
+//       // и выйдем из функции
+//       return undefined;
+//     }
+
+//     res = res[arr[i]];
+//   }
+
+//   return res;
+// } 
+
+
 function getProperty(obj, path) {
-  // разбить path в массив и положить результат в переменную arr
-  const arr = path.split('.');
+  return path.split('.').reduce(function (res, key) {
+        if (res === undefined || res === null) {
+      console.log('Такого свойства нет');
+      return undefined;
+    }
 
-    // создать переменную res и присвоить ей obj
-  let res = obj;
-
-  // пройтись по массиву от начала и до конца
-  for (let i = 0; i < arr.length; i += 1) {
-    // взять элемент массива
-    // достать из переменной результата свойство по соответствующему ключу
-    // записать полученное свойство в переменную res
-    res = res[arr[i]];
-  }
-
-  // вернуть res
-  return res;
+    return res[key];
+  }, obj);
 } 
+
 
 const object = {
   one: 1,

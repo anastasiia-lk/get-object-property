@@ -17,5 +17,13 @@ function getProperty(obj, path) {
   return res;
 } 
 
-getProperty(object, 'one'); // 1
-getProperty(object, 'two.three'); // 3 
+const object = {
+  one: 1,
+  two: {
+    three: 3
+  },
+  four: 4
+};
+
+console.log(getProperty(object, 'one')); // 1
+console.log(getProperty(object, 'two.three')); // 3 
